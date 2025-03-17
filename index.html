@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Générateur de CV Professionnel</h1>
+        
+        <div class="form-container">
+            <!-- Photo de profil -->
+            <section class="section">
+                <h2>Photo de Profil</h2>
+                <div class="photo-container">
+                    <div class="photo-preview">
+                        <img id="photo-preview" src="placeholder.png" alt="Aperçu de la photo">
+                    </div>
+                    <div class="photo-upload">
+                        <input type="file" id="photo-input" accept="image/*" onchange="previewPhoto(event)">
+                        <button onclick="document.getElementById('photo-input').click()">Choisir une photo</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Informations personnelles -->
+            <section class="section">
+                <h2>Informations Personnelles</h2>
+                <div class="form-group">
+                    <input type="text" id="nom" placeholder="Nom">
+                    <input type="text" id="prenom" placeholder="Prénom">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="tel" id="telephone" placeholder="Téléphone">
+                    <textarea id="adresse" placeholder="Adresse"></textarea>
+                </div>
+            </section>
+
+            <!-- Formation -->
+            <section class="section">
+                <h2>Formation</h2>
+                <div id="formations">
+                    <div class="formation-entry">
+                        <input type="text" placeholder="Diplôme">
+                        <input type="text" placeholder="École">
+                        <input type="text" placeholder="Année">
+                        <textarea placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <button onclick="ajouterFormation()">+ Ajouter une formation</button>
+            </section>
+
+            <!-- Expérience professionnelle -->
+            <section class="section">
+                <h2>Expérience Professionnelle</h2>
+                <div id="experiences">
+                    <div class="experience-entry">
+                        <input type="text" placeholder="Poste">
+                        <input type="text" placeholder="Entreprise">
+                        <input type="text" placeholder="Période">
+                        <textarea placeholder="Description des responsabilités"></textarea>
+                    </div>
+                </div>
+                <button onclick="ajouterExperience()">+ Ajouter une expérience</button>
+            </section>
+
+            <!-- Compétences -->
+            <section class="section">
+                <h2>Compétences</h2>
+                <div id="competences">
+                    <input type="text" id="nouvelle-competence" placeholder="Ajouter une compétence">
+                    <button onclick="ajouterCompetence()">Ajouter</button>
+                    <div id="liste-competences" class="tags-container"></div>
+                </div>
+            </section>
+
+            <!-- Langues -->
+            <section class="section">
+                <h2>Langues</h2>
+                <div id="langues">
+                    <div class="langue-entry">
+                        <input type="text" placeholder="Langue">
+                        <select class="niveau-langue">
+                            <option value="Langue maternelle">Langue maternelle</option>
+                            <option value="Bilingue">Bilingue</option>
+                            <option value="Courant">Courant</option>
+                            <option value="Intermédiaire">Intermédiaire</option>
+                            <option value="Débutant">Débutant</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="ajouterLangue()">+ Ajouter une langue</button>
+            </section>
+
+            <!-- Centres d'intérêt -->
+            <section class="section">
+                <h2>Centres d'intérêt</h2>
+                <textarea id="interets" placeholder="Décrivez vos centres d'intérêt"></textarea>
+            </section>
+
+            <button id="generer-cv" onclick="genererCV()">Générer le CV</button>
+        </div>
+
+        <!-- Aperçu du CV -->
+        <div id="apercu-cv" class="cv-preview hidden">
+            <!-- Le CV généré sera affiché ici -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
